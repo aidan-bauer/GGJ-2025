@@ -7,8 +7,8 @@ public class Shield : MonoBehaviour
 
     private void Awake()
     {
-        if (LevelManager.inst.Constants.maxShieldDuration > 0f)
-            Destroy(gameObject, LevelManager.inst.Constants.maxShieldDuration);
+        if (DontDestroy.inst.Constants.maxShieldDuration > 0f)
+            Destroy(gameObject, DontDestroy.inst.Constants.maxShieldDuration);
     }
 
     // Start is called before the first frame update
@@ -19,6 +19,11 @@ public class Shield : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    private void OnDisable()
     {
         
     }

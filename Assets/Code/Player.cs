@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] GameEvent deployedShield;
     [SerializeField] bool deploying;
 
     Vector3 deployPos;
@@ -88,6 +90,7 @@ public class Player : MonoBehaviour
         {
             //Debug.Log("deploy the shields at " + cursorWorldPos + "!");
             deploying = false;
+            deployedShield.Raise();
             shieldDeployer.DestroyPreview();
             shieldDeployer.DeployShield(deployPos);
         }

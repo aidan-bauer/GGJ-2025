@@ -47,13 +47,13 @@ public class ShieldDeployer : MonoBehaviour
 
     public void DeployShield(Vector3 spawnPos)
     {
-        if (deployedShields.Count == LevelManager.inst.Constants.maxDeployedShields)
+        if (deployedShields.Count == DontDestroy.inst.Constants.maxDeployedShields)
         {
             Destroy(deployedShields[0].gameObject);
             deployedShields.RemoveAt(0);
         }
 
-        GameObject newShield = Instantiate(shield, spawnPos, Quaternion.LookRotation(Vector3.up));
+        GameObject newShield = Instantiate(shield, spawnPos, Quaternion.identity);
         deployedShields.Add(newShield);
     }
 }
